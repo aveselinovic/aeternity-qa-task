@@ -8,7 +8,7 @@ WALLET_IFRAME_SOURCE = 'https://wallet.superhero.com'.freeze
 EXTENSION_PATH = ['extension_0_4_2_0.crx'].freeze
 
 def setup
-   # ext_path = ['extension_0_4_2_0.crx']
+   # ext_path = ['files/extension_0_4_2_0.crx']
    @browser = Watir::Browser.new :chrome
    @browser.goto SuperHero::BASE_URL
    Watir::Wait.until { @browser.title == "Tips - Superhero.com" }
@@ -45,7 +45,7 @@ def test_001
   @browser.button(text: 'Accept').wait_until(&:present?).wait_until(&:enabled?).double_click
   @browser.window(index: 0).use
   @browser.link(href: /user-profile/).wait_until(&:present?).click
-  @browser.file_field(:name => 'avatar').set("flag.jpg")
+  @browser.file_field(:name => 'avatar').set("files/flag.jpg")
   sleep 3
   @browser.window(index: 1).wait_until(&:exists?)
   @browser.window(title: 'Superhero Wallet').use
