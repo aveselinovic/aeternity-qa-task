@@ -1,0 +1,6 @@
+## very very simple Rakefile here :)
+task :run do
+  system "ruby superhero_test.rb"
+end
+
+task default: :run
