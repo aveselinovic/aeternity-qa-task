@@ -1,6 +1,13 @@
 ## very very simple Rakefile here :)
+namespace :test do
 task :run do
-  system "ruby superhero_test.rb"
+  system "ruby superhero_test.rb false"
+end
+task :with_extension do
+  system "ruby superhero_test.rb true"
+end
 end
 
-task default: :run
+task test: 'test:run'
+
+
